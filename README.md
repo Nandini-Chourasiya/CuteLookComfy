@@ -63,7 +63,6 @@ CuteLookComfy/
 │   ├── package.json          # Frontend dependencies
 │   └── src/                  # React source components & hooks
 ├── docker-compose.yml        # Orchestration configurations for dev & staging
-├── .env.example              # Sample environment configurations template
 └── README.md                 # System documentation
 ```
 
@@ -97,12 +96,8 @@ You need the following installed locally:
     cd CuteLookComfy
     ```
 
-2.  **Set up the environment variables:**
-    Copy the sample configuration file to create `.env`:
-    ```bash
-    cp .env.example .env
-    ```
-    *Open the `.env` file and insert your API credentials for services like OAuth2 (Google), Razorpay, AWS S3, and SMTP Mail if using them.*
+2.  **Set up environment variables:**
+    Create a `.env` file at the root of the project with your local database configuration and authentication credentials.
 
 3.  **Boot the entire stack:**
     ```bash
@@ -152,26 +147,6 @@ Make sure local instances of **PostgreSQL** (with a database named `ecommerce`) 
     npm start
     ```
     *The web application will open on `http://localhost:3000` with hot-reloading active.*
-
----
-
-## Environment Variables & Configuration
-
-The application reads properties from the root `.env` file or direct environment mappings. 
-
-| Variable | Default Value | Description |
-|---|---|---|
-| `DB_USERNAME` | `postgres` | PostgreSQL username |
-| `DB_PASSWORD` | `postgres` | PostgreSQL password |
-| `REDIS_PASSWORD` | *Empty* | Redis database authorization password |
-| `JWT_SECRET` | *Must provide* | Base64 encoded private key for signing secure JWT tokens |
-| `GOOGLE_CLIENT_ID` | *Optional* | Google Cloud Console Client ID for OAuth2 Login |
-| `GOOGLE_CLIENT_SECRET` | *Optional* | Google Cloud Console Client Secret for OAuth2 Login |
-| `RAZORPAY_KEY_ID` | *Optional* | Razorpay merchant public key |
-| `RAZORPAY_KEY_SECRET` | *Optional* | Razorpay merchant secret key |
-| `RAZORPAY_WEBHOOK_SECRET` | *Optional* | Razorpay transaction callback webhook signing key |
-| `MAIL_USERNAME` | *Optional* | SMTP Server authentication email address |
-| `MAIL_PASSWORD` | *Optional* | SMTP Server authentication application password |
 
 ---
 
